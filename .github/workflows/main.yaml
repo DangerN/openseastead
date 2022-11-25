@@ -6,10 +6,10 @@ on:
 jobs:
   deploy_website:
     name: Deploy Website
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client
+        working-directory: ./website
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
