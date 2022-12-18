@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter} from "react-router-dom";
-import Markdown from "./components/Markdown";
-import testMarkdown from "./assets/markdown/test.md";
+// import {createBrowserRouter} from "react-router-dom";
+// import Markdown from "./components/Markdown";
+// import testMarkdown from "./assets/markdown/test.md";
 
 // const router = createBrowserRouter([
 //     {
