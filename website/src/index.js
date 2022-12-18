@@ -1,29 +1,62 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import {createBrowserRouter} from "react-router-dom";
-// import Markdown from "./components/Markdown";
-// import testMarkdown from "./assets/markdown/test.md";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Root from "./routes/Root";
+import Index from "./routes/Index";
+import {createTheme, ThemeProvider} from "@mui/material";
+import {blueGrey} from "@mui/material/colors";
+import Donate from "./routes/Donate";
+import About from "./routes/About";
+import SeasteadModule from "./routes/SeasteadModule";
+import SeasteadPlan from "./routes/SeasteadPlan";
 
-// const router = createBrowserRouter([
-//     {
-//         "path": "/",
-//         "element": <Markdown url={testMarkdown}/>,
-//         "errorElement": <div>404</div>,
-//     },
-//     {
-//         "path": "/test_2",
-//         "element": <Markdown url={'test_2.md'}/>,
-//     }
-// ])
+const router = createBrowserRouter([
+    {
+        "path": "/",
+        "element": <Root/>,
+        "errorElement": <Root errorPage/>,
+        "children": [
+            {
+                "path": "/donate",
+                "element": <Donate/>,
+            },
+            {
+                "path": "/about",
+                "element": <About/>,
+            },
+            {
+                "path": "/the-module",
+                "element": <SeasteadModule/>,
+            },
+            {
+                "path": "/the-plan",
+                "element": <SeasteadPlan/>,
+            },
+            {
+                "index": true,
+                "element": <Index/>,
+            },
+        ]
+    },
+])
+
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: blueGrey[300]
+        }
+    }
+})
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <ThemeProvider theme={theme}>
+          <RouterProvider router={router}/>
+      </ThemeProvider>
   </React.StrictMode>
 );
 
