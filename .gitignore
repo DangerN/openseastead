@@ -2,3 +2,5 @@
 website/build
 *.tfstate
 **/.terraform
+venv
+wave_data_analysis/out
