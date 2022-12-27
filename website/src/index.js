@@ -10,6 +10,8 @@ import Donate from "./routes/Donate";
 import About from "./routes/About";
 import SeasteadModule from "./routes/SeasteadModule";
 import SeasteadPlan from "./routes/SeasteadPlan";
+import ModuleSafety from "./routes/ModuleSafety";
+import ModuleIndex from "./routes/ModuleIndex";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
             {
                 "path": "/the-module",
                 "element": <SeasteadModule/>,
+                "children": [
+                    {
+                        "index": true,
+                        "element": <ModuleIndex />,
+                    },
+                    {
+                        "path": "safety",
+                        "element": <ModuleSafety />,
+                    },
+                ]
             },
             {
                 "path": "/the-plan",
