@@ -25,3 +25,33 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
+  deploy_lambdas:
+    name: Deploy Lambdas
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lambdas
+    steps:
+      - uses: actions/checkout@v2
+#      - uses: actions/setup-python@v4
+#        with:
+#          python-version: 3.9
+#      - name: run tests
+      - name: Create Packages
+        run: |
+          mkdir build
+          (cd oss-api && zip -r ../build/oss-api.zip *)
+          (cd oss-mail-handler && zip -r ../build/oss-mail-handler.zip *)
+      - name: Upload Packages
+        run: aws s3 sync ./build s3://openseastead-resources/packages/lambda
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_EC2_METADATA_DISABLED: true
+#      - name: Deploy
+#        run: |
+#          aws lambda update-function-code --function-name oss-api-lambda --s3-bucket openseastead-resources --s3-key packages/lambda/oss-api.zip
+#          aws lambda update-function-code --function-name oss-mail-handler --s3-bucket openseastead-resources --s3-key packages/lambda/oss-mail-handler.zip
+#        env:
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
