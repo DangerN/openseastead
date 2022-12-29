@@ -17,12 +17,20 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const drawerWidth = 240;
 
 const theModuleLinks = {
-    'Overview': '',
+    'Module Overview': '',
     'Safety': 'safety'
+}
+
+const thePlanLinks = {
+    'Plan Overview': '',
+    'Construction': 'construction',
+    'Launching': 'launching',
 }
 
 function Root(props) {
@@ -31,6 +39,24 @@ function Root(props) {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [mobileOpen, setMobileOpen] = useState(false);
     const location = useLocation()
+    const [cBarOpen, setCBarOpen] = useState(true)
+
+    const getPageLinks = (prefix, linkMap) => {
+       return Object.entries(linkMap).map(([name, link]) => {
+           return <ListItem disablePadding key={link}>
+               <ListItemButton component={RouterLink} to={`/${prefix}/${link}`}>
+                   <ListItemText>{`${name}`}</ListItemText>
+               </ListItemButton>
+           </ListItem>
+       })
+    }
+
+    const handleCBarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setCBarOpen(false);
+    };
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -60,20 +86,15 @@ function Root(props) {
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton component={RouterLink} to={'/donate'}>
-                    <ListItemText>Donate</ListItemText>
+                <ListItemButton component={RouterLink} to={'/contribute'}>
+                    <ListItemText>Contribute</ListItemText>
                 </ListItemButton>
             </ListItem>
         </List> : null}
         <Divider />
         <List>
-            { location.pathname.includes('the-module') ? Object.entries(theModuleLinks).map(([name, link]) => {
-                return <ListItem disablePadding key={link}>
-                    <ListItemButton component={RouterLink} to={`/the-module/${link}`}>
-                        <ListItemText>{`${name}`}</ListItemText>
-                    </ListItemButton>
-                </ListItem>
-            }) : null }
+            { location.pathname.includes('the-module') ? getPageLinks('the-module', theModuleLinks): null }
+            { location.pathname.includes('the-plan') ? getPageLinks('the-plan', thePlanLinks): null }
         </List>
     </>)
 
@@ -93,7 +114,7 @@ function Root(props) {
                         <MenuIcon />
                     </IconButton>
                     <Button component={RouterLink} to={'/'} color={'inherit'} >
-                        <Typography variant='h5' >Open Seastead</Typography>
+                        <Typography variant='h5' sx={{fontFamily: "'Cinzel Decorative', cursive"}}>Open Seastead</Typography>
                     </Button>
 
                     { isMobile ? null :
@@ -108,8 +129,8 @@ function Root(props) {
                             <Button component={RouterLink} to={'/about'} color={'inherit'} sx={{ flexGrow: 1 }}>
                             <Typography variant='h6' >About</Typography>
                             </Button>
-                            <Button component={RouterLink} to={'/donate'} color={'inherit'} variant={'outlined'} sx={{ flexGrow: 1 }}>
-                            <Typography variant='h6' >Donate</Typography>
+                            <Button component={RouterLink} to={'/contribute'} color={'inherit'} variant={'outlined'} sx={{ flexGrow: 1 }}>
+                            <Typography variant='h6' >Contribute</Typography>
                             </Button>
                         </>
                     }
@@ -142,11 +163,15 @@ function Root(props) {
                     {drawer}
                 </Drawer>
                 : null }
-            <Box >
-                <Toolbar/>
-                { props.errorPage ? <ErrorPage/> : <Outlet context={{isMobile: isMobile, mobileOpen: mobileOpen, handleDrawerToggle: handleDrawerToggle, drawerWidth: drawerWidth}}/> }
+            <Box sx={{height: '100%'}} >
+                { props.errorPage ? <ErrorPage /> : <Outlet context={{isMobile: isMobile, mobileOpen: mobileOpen, handleDrawerToggle: handleDrawerToggle, drawerWidth: drawerWidth}}/> }
             </Box>
         </Box>
+        <Snackbar open={cBarOpen} onClose={handleCBarClose} autoHideDuration={20000}>
+            <MuiAlert onClose={handleCBarClose} severity={'warning'} variant={'filled'}>
+                This site is currently under heavy development. Some areas may be incomplete and items will likely be moved, added, or removed.
+            </MuiAlert>
+        </Snackbar>
     </>
 }
 

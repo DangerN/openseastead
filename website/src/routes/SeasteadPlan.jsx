@@ -1,10 +1,12 @@
-import {Container} from "@mui/material";
-import Markdown from "../components/Markdown";
+import {Outlet, useOutletContext} from "react-router-dom";
+import Box from "@mui/material/Box";
 
 function SeasteadPlan() {
-    return <Container>
-        <Markdown url={'assets/markdown/seastead-plan.md'}/>
-    </Container>
+    const { isMobile, drawerWidth} = useOutletContext()
+
+    return <Box sx={ isMobile ? { flexGrow: 1} : { flexGrow: 1, pl: `${drawerWidth}px`}}>
+        <Outlet/>
+    </Box>
 }
 
 export default SeasteadPlan

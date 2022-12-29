@@ -6,7 +6,7 @@ import Root from "./routes/Root";
 import Index from "./routes/Index";
 import {createTheme, ThemeProvider} from "@mui/material";
 import {blueGrey} from "@mui/material/colors";
-import Donate from "./routes/Donate";
+import Contribute from "./routes/Contribute";
 import About from "./routes/About";
 import SeasteadModule from "./routes/SeasteadModule";
 import SeasteadPlan from "./routes/SeasteadPlan";
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         "errorElement": <Root errorPage/>,
         "children": [
             {
-                "path": "/donate",
-                "element": <Donate/>,
+                "path": "/contribute",
+                "element": <Contribute/>,
             },
             {
                 "path": "/about",
