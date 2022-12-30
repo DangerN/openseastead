@@ -5,7 +5,7 @@ import '@fontsource/roboto/700.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 import {useTheme} from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {useEffect, useState} from "react";
@@ -24,13 +24,18 @@ const drawerWidth = 240;
 
 const theModuleLinks = {
     'Module Overview': '',
-    'Safety': 'safety'
+    'Safety': 'safety',
+    'Propulsion': 'propulsion',
+    'Energy': 'energy',
+    'Habitation': 'habitation',
+    'Recycling': 'recycling',
 }
 
 const thePlanLinks = {
     'Plan Overview': '',
     'Construction': 'construction',
-    'Launching': 'launching',
+    'Launch': 'launch',
+    'Location': 'location',
 }
 
 function Root(props) {

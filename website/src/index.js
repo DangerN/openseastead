@@ -10,8 +10,16 @@ import Contribute from "./routes/Contribute";
 import About from "./routes/About";
 import SeasteadModule from "./routes/SeasteadModule";
 import SeasteadPlan from "./routes/SeasteadPlan";
-import ModuleSafety from "./routes/ModuleSafety";
-import ModuleIndex from "./routes/ModuleIndex";
+import ModuleSafety from "./routes/module/ModuleSafety";
+import ModuleIndex from "./routes/module/ModuleIndex";
+import ModuleHabitation from "./routes/module/ModuleHabitation";
+import ModuleEnergy from "./routes/module/ModuleEnergy";
+import ModulePropulsion from "./routes/module/ModulePropulsion";
+import PlanIndex from "./routes/plan/PlanIndex";
+import PlanConstruction from "./routes/plan/PlanConstruction";
+import PlanLaunch from "./routes/plan/PlanLaunch";
+import PlanLocation from "./routes/plan/PlanLocation";
+import ModuleRecycling from "./routes/module/ModuleRecycling";
 
 const router = createBrowserRouter([
     {
@@ -39,11 +47,45 @@ const router = createBrowserRouter([
                         "path": "safety",
                         "element": <ModuleSafety />,
                     },
+                    {
+                        "path": "propulsion",
+                        "element": <ModulePropulsion />,
+                    },
+                    {
+                        "path": "energy",
+                        "element": <ModuleEnergy />,
+                    },
+                    {
+                        "path": "habitation",
+                        "element": <ModuleHabitation />,
+                    },
+                    {
+                        "path": "recycling",
+                        "element": <ModuleRecycling />,
+                    },
                 ]
             },
             {
                 "path": "/the-plan",
                 "element": <SeasteadPlan/>,
+                "children": [
+                    {
+                        "index": true,
+                        "element": <PlanIndex />,
+                    },
+                    {
+                        "path": "construction",
+                        "element": <PlanConstruction />,
+                    },
+                    {
+                        "path": "launch",
+                        "element": <PlanLaunch />,
+                    },
+                    {
+                        "path": "location",
+                        "element": <PlanLocation />,
+                    },
+                ]
             },
             {
                 "index": true,
