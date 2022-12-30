@@ -6,10 +6,15 @@ ses = boto3.client('ses')
 lambda_client = boto3.client('lambda')
 
 
-def subscribe_email():
-    # add email to dynamo
+def subscribe_email(event):
+    # create ses contact
+    # subscribe ses contact to newsletter
     # send confirmation email
-    pass
+
+    return {
+        'statusCode': 201,
+        'body': json.dumps(event)
+    }
 
 
 def unsubscribe_email():
@@ -24,7 +29,17 @@ def lambda_handler(event, context):
     path = event['path']
     method = event['httpMethod']
 
+    try:
+        if path is '/api/news/subscribe' and method is 'POST':
+            return subscribe_email(event)
+    except Exception as e:
+        print(e)
+        return {
+            'statusCode': 500,
+            'body': json.dumps(event)
+        }
+
     return {
-        'statusCode': 200,
+        'statusCode': 400,
         'body': json.dumps(event)
     }
