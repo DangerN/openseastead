@@ -4,3 +4,4 @@ website/build
 **/.terraform
 venv
 wave_data_analysis/out
+**__pycache__**

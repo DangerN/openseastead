@@ -19,7 +19,8 @@ import PlanIndex from "./routes/plan/PlanIndex";
 import PlanConstruction from "./routes/plan/PlanConstruction";
 import PlanLaunch from "./routes/plan/PlanLaunch";
 import PlanLocation from "./routes/plan/PlanLocation";
-import ModuleRecycling from "./routes/module/ModuleRecycling";
+import ModuleEndOfLife from "./routes/module/ModuleEndOfLife";
+import PlanSeaTrials from "./routes/plan/PlanSeaTrials";
 
 const router = createBrowserRouter([
     {
@@ -60,8 +61,8 @@ const router = createBrowserRouter([
                         "element": <ModuleHabitation />,
                     },
                     {
-                        "path": "recycling",
-                        "element": <ModuleRecycling />,
+                        "path": "end-of-life",
+                        "element": <ModuleEndOfLife />,
                     },
                 ]
             },
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
                     {
                         "path": "launch",
                         "element": <PlanLaunch />,
+                    },
+                    {
+                        "path": "sea-trials",
+                        "element": <PlanSeaTrials />,
                     },
                     {
                         "path": "location",

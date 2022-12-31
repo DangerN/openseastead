@@ -28,13 +28,14 @@ const theModuleLinks = {
     'Propulsion': 'propulsion',
     'Energy': 'energy',
     'Habitation': 'habitation',
-    'Recycling': 'recycling',
+    'End of Life': 'end-of-life',
 }
 
 const thePlanLinks = {
     'Plan Overview': '',
     'Construction': 'construction',
     'Launch': 'launch',
+    'Sea Trials': 'sea-trials',
     'Location': 'location',
 }
 
