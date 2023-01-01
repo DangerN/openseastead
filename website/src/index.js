@@ -21,6 +21,8 @@ import PlanLaunch from "./routes/plan/PlanLaunch";
 import PlanLocation from "./routes/plan/PlanLocation";
 import ModuleEndOfLife from "./routes/module/ModuleEndOfLife";
 import PlanSeaTrials from "./routes/plan/PlanSeaTrials";
+import ModuleComputer from "./routes/module/ModuleComputer";
+import PlanBusiness from "./routes/plan/PlanBusiness";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
                         "path": "end-of-life",
                         "element": <ModuleEndOfLife />,
                     },
+                    {
+                        "path": "onboard-computer",
+                        "element": <ModuleComputer />,
+                    },
                 ]
             },
             {
@@ -89,6 +95,10 @@ const router = createBrowserRouter([
                     {
                         "path": "location",
                         "element": <PlanLocation />,
+                    },
+                    {
+                        "path": "business",
+                        "element": <PlanBusiness />,
                     },
                 ]
             },

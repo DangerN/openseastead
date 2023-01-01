@@ -30,7 +30,7 @@ def lambda_handler(event, context):
     method = event['httpMethod']
 
     try:
-        if path is '/api/news/subscribe' and method is 'POST':
+        if path == '/api/news/subscribe' and method == 'POST':
             return subscribe_email(event)
     except Exception as e:
         print(e)

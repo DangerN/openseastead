@@ -1,7 +1,8 @@
-import {Typography, Toolbar} from "@mui/material";
+import {Typography, Toolbar, Button} from "@mui/material";
 import GridImageItem from "../../components/GridImageItem";
 import GridTextItem from "../../components/GridTextItem";
 import GridContainer from "../../components/GridContainer";
+import {Link as RouterLink} from "react-router-dom";
 
 function ModuleIndex() {
     return <>
@@ -26,7 +27,13 @@ function ModuleIndex() {
             <GridImageItem imageProps={{src: 'https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}}/>
             <GridTextItem>
                 <Typography variant={'h4'}>Onboard Computer</Typography>
-                <Typography paragraph>The </Typography>
+                <Typography paragraph>
+                    The onboard computer manages the various systems of the module.
+                    It is responsible for dynamic positioning, resource management, and coordinating with other modules.
+                </Typography>
+                <Button component={RouterLink} to={'onboard-computer'} variant={'outlined'} >
+                    Onboard Computer
+                </Button>
             </GridTextItem>
         </GridContainer>
     </>

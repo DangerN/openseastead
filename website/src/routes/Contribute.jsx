@@ -10,6 +10,7 @@ import {useState} from "react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import MuiAlert from "@mui/material/Alert";
+import {useOutletContext} from "react-router-dom";
 
 
 const newsModalStyle = {
@@ -42,6 +43,7 @@ const validationSchema = yup.object({
 });
 
 function Contribute() {
+    const { isMobile, drawerWidth} = useOutletContext()
 
     const [newsModalOpen, setNewsModalOpen] = useState(false)
 
@@ -73,7 +75,7 @@ function Contribute() {
     });
 
 
-    return <>
+    return <Box sx={ isMobile ? { flexGrow: 1} : { flexGrow: 1, pl: `${drawerWidth}px`}}>
         <Toolbar/>
         <Grid container sx={{margin: '1rem'}} spacing={2}>
             <Grid xs={12}>
@@ -119,7 +121,7 @@ function Contribute() {
                     <Box p={2}>
                         <Typography variant={'h4'}>Financial</Typography>
                         <Typography paragraph></Typography>
-                        <Typography paragraph>Were super stoked you're interested in giving us financial support.</Typography>
+                        {/*<Typography paragraph>We're super stoked you're interested in giving us financial support.</Typography>*/}
                         <Typography paragraph>We plan to start fundraising late spring of 2023. Stay tuned!</Typography>
                     </Box>
                 </Paper>
@@ -148,7 +150,7 @@ function Contribute() {
                 <Grid container spacing={2} component='form' onSubmit={formik.handleSubmit}>
                     <Grid xs={12}>
                         <MuiAlert severity={'error'} variant={'filled'}>
-                            Sign up is in test mode. Submissions may not be processed correctly.
+                            Sign up is in test mode. Submissions will not be processed.
                         </MuiAlert>
                     </Grid>
                     <Grid xs={12}>
@@ -197,7 +199,7 @@ function Contribute() {
                 </Grid>
             </Box>
         </Modal>
-    </>
+    </Box>
 }
 
 export default Contribute

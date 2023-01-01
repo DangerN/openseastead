@@ -3,7 +3,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CssBaseline from '@mui/material/CssBaseline';
-import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Button, Collapse, Toolbar, Typography} from "@mui/material";
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import {useTheme} from "@mui/material/styles";
@@ -23,7 +23,7 @@ import MuiAlert from '@mui/material/Alert';
 const drawerWidth = 240;
 
 const theModuleLinks = {
-    'Module Overview': '',
+    'Onboard Computer': 'onboard-computer',
     'Safety': 'safety',
     'Propulsion': 'propulsion',
     'Energy': 'energy',
@@ -32,11 +32,11 @@ const theModuleLinks = {
 }
 
 const thePlanLinks = {
-    'Plan Overview': '',
     'Construction': 'construction',
     'Launch': 'launch',
     'Sea Trials': 'sea-trials',
     'Location': 'location',
+    'Business': 'business',
 }
 
 function Root(props) {
@@ -46,11 +46,15 @@ function Root(props) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const location = useLocation()
     const [cBarOpen, setCBarOpen] = useState(true)
+    const [planOpen, setPlanOpen] = useState(location.pathname.includes('the-plan') )
+    const [moduleOpen, setModuleOpen] = useState(location.pathname.includes('the-module'))
+
+    console.log(location)
 
     const getPageLinks = (prefix, linkMap) => {
        return Object.entries(linkMap).map(([name, link]) => {
-           return <ListItem disablePadding key={link}>
-               <ListItemButton component={RouterLink} to={`/${prefix}/${link}`}>
+           return <ListItem key={link}>
+               <ListItemButton component={RouterLink} to={`/${prefix}/${link}`} selected={location.pathname.includes([prefix, link].join('/'))}>
                    <ListItemText>{`${name}`}</ListItemText>
                </ListItemButton>
            </ListItem>
@@ -70,22 +74,34 @@ function Root(props) {
 
     useEffect(()=>{
         setMobileOpen(false)
+        setModuleOpen(location.pathname.includes('the-module'))
+        setPlanOpen(location.pathname.includes('the-plan'))
     }, [location])
 
     const drawer = (<>
         <Toolbar />
         <Divider />
-        {isMobile ? <List>
+        <List>
             <ListItem disablePadding>
                 <ListItemButton component={RouterLink} to={'/the-module'}>
                     <ListItemText>The Module</ListItemText>
                 </ListItemButton>
             </ListItem>
+            <Collapse in={moduleOpen} timeout="auto" unmountOnExit>
+                <List component="div" dense disablePadding>
+                    {getPageLinks('the-module', theModuleLinks)}
+                </List>
+            </Collapse>
             <ListItem disablePadding>
                 <ListItemButton component={RouterLink} to={'/the-plan'}>
                     <ListItemText>The Plan</ListItemText>
                 </ListItemButton>
             </ListItem>
+            <Collapse in={planOpen} timeout="auto" unmountOnExit>
+                <List component="div" dense disablePadding>
+                    {getPageLinks('the-plan', thePlanLinks)}
+                </List>
+            </Collapse>
             <ListItem disablePadding>
                 <ListItemButton component={RouterLink} to={'/about'}>
                     <ListItemText>About</ListItemText>
@@ -96,12 +112,8 @@ function Root(props) {
                     <ListItemText>Contribute</ListItemText>
                 </ListItemButton>
             </ListItem>
-        </List> : null}
-        <Divider />
-        <List>
-            { location.pathname.includes('the-module') ? getPageLinks('the-module', theModuleLinks): null }
-            { location.pathname.includes('the-plan') ? getPageLinks('the-plan', thePlanLinks): null }
         </List>
+        {/*<Divider />*/}
     </>)
 
     return <>
@@ -158,7 +170,8 @@ function Root(props) {
                     {drawer}
                 </Drawer> : null
             }
-            { !isMobile && ['the-module', 'the-plan'].some(path => location.pathname.includes(path)) ?
+            {/*{ !isMobile && ['the-module', 'the-plan'].some(path => location.pathname.includes(path)) ?*/}
+            { !isMobile && location.pathname !== '/' ?
                 <Drawer
                     variant="permanent"
                     sx={{
