@@ -86,7 +86,7 @@ function Contribute() {
                     <Box p={2}>
                         <Typography variant={'h4'}>Social</Typography>
                         <Typography paragraph></Typography>
-                        <Typography paragraph>Something something dependant on a community. The socials. Like and subscribe.</Typography>
+                        <Typography paragraph>Something something a community. The socials. Like and subscribe.</Typography>
                         <Typography paragraph>Sign up for the newsletter why not?</Typography>
                         <Typography paragraph></Typography>
                         <Button
@@ -104,7 +104,7 @@ function Contribute() {
                                 <Button href='' disabled target="_blank" rel="noopener noreferrer" startIcon={<TwitterIcon/>} variant={'contained'}>Twitter</Button>
                             </Grid>
                             <Grid>
-                                <Button href='' disabled target="_blank" rel="noopener noreferrer" startIcon={<LinkedInIcon/>} variant={'contained'}>LinkedIn</Button>
+                                <Button href='https://www.linkedin.com/company/open-seastead/' target="_blank" rel="noopener noreferrer" startIcon={<LinkedInIcon/>} variant={'contained'}>LinkedIn</Button>
                             </Grid>
                             <Grid>
                                 <Button href='' disabled target="_blank" rel="noopener noreferrer" startIcon={<RedditIcon/>} variant={'contained'}>Reddit</Button>
@@ -121,7 +121,6 @@ function Contribute() {
                     <Box p={2}>
                         <Typography variant={'h4'}>Financial</Typography>
                         <Typography paragraph></Typography>
-                        {/*<Typography paragraph>We're super stoked you're interested in giving us financial support.</Typography>*/}
                         <Typography paragraph>We plan to start fundraising late spring of 2023. Stay tuned!</Typography>
                     </Box>
                 </Paper>

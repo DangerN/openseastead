@@ -19,10 +19,11 @@ import PlanIndex from "./routes/plan/PlanIndex";
 import PlanConstruction from "./routes/plan/PlanConstruction";
 import PlanLaunch from "./routes/plan/PlanLaunch";
 import PlanLocation from "./routes/plan/PlanLocation";
-import ModuleEndOfLife from "./routes/module/ModuleEndOfLife";
+import ModuleMaterials from "./routes/module/ModuleMaterials";
 import PlanSeaTrials from "./routes/plan/PlanSeaTrials";
 import ModuleComputer from "./routes/module/ModuleComputer";
 import PlanBusiness from "./routes/plan/PlanBusiness";
+import ModuleDesign from "./routes/module/ModuleDesign";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
                         "element": <ModuleIndex />,
                     },
                     {
+                        "path": "design",
+                        "element": <ModuleDesign />,
+                    },
+                    {
                         "path": "safety",
                         "element": <ModuleSafety />,
                     },
@@ -63,8 +68,8 @@ const router = createBrowserRouter([
                         "element": <ModuleHabitation />,
                     },
                     {
-                        "path": "end-of-life",
-                        "element": <ModuleEndOfLife />,
+                        "path": "materials",
+                        "element": <ModuleMaterials />,
                     },
                     {
                         "path": "onboard-computer",
@@ -111,13 +116,19 @@ const router = createBrowserRouter([
 ])
 
 
+
 const theme = createTheme({
     palette: {
+        type: 'light',
         primary: {
-            main: blueGrey[300]
-        }
-    }
+            main: '#1f8680',
+        },
+        secondary: {
+            main: '#861F25',
+        },
+    },
 })
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

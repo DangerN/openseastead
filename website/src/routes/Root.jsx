@@ -19,16 +19,19 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import PreviousNextButtons from "../components/PreviousNextButtons";
+import Logo from "../assests/images/logo512.png";
 
 const drawerWidth = 240;
 
 const theModuleLinks = {
-    'Onboard Computer': 'onboard-computer',
+    'Design': 'design',
     'Safety': 'safety',
+    'Onboard Computer': 'onboard-computer',
     'Propulsion': 'propulsion',
     'Energy': 'energy',
     'Habitation': 'habitation',
-    'End of Life': 'end-of-life',
+    'Materials': 'materials',
 }
 
 const thePlanLinks = {
@@ -59,6 +62,109 @@ function Root(props) {
                </ListItemButton>
            </ListItem>
        })
+    }
+
+    const getPreviousNextButtons = () => {
+        let previousPath, previousName, nextPath, nextName
+
+        if (location.pathname.includes('the-module')) {
+            const moduleLinksEntries = Object.entries(theModuleLinks)
+
+            if (location.pathname === '/the-module') {
+                previousPath = '/'
+                previousName = 'Home'
+                nextPath = moduleLinksEntries[0][1]
+                nextName = moduleLinksEntries[0][0]
+            } else {
+
+                const currentIndex = moduleLinksEntries.findIndex(([linkName, linkPath])=>location.pathname.includes(linkPath))
+
+                let next, previous
+
+                switch (currentIndex) {
+                    case 0:
+                        next = moduleLinksEntries[currentIndex + 1]
+                        previousPath = '/the-module'
+                        previousName = 'The Module'
+                        nextPath = next[1]
+                        nextName = next[0]
+                        break
+                    case moduleLinksEntries.length - 1:
+                        previous = moduleLinksEntries[currentIndex - 1]
+                        next = moduleLinksEntries[currentIndex + 1]
+                        previousPath = previous[1]
+                        previousName = previous[0]
+                        nextPath = '/the-plan'
+                        nextName = 'Plan'
+                        break
+                    default:
+                        previous = moduleLinksEntries[currentIndex - 1]
+                        next = moduleLinksEntries[currentIndex + 1]
+                        previousPath = previous[1]
+                        previousName = previous[0]
+                        nextPath = next[1]
+                        nextName = next[0]
+                        break
+                }
+            }
+        }
+
+        if (location.pathname === '/the-plan') {
+            previousPath = '/the-module'
+            previousName = 'The Module'
+            nextPath = '/contribute'
+            nextName = 'Contribute'
+        }
+
+        if (location.pathname.includes('the-plan')) {
+            const planLinkEntries = Object.entries(thePlanLinks)
+
+            if (location.pathname === '/the-plan') {
+                const moduleLinksEntries = Object.entries(theModuleLinks)
+                previousPath = `/the-module/${moduleLinksEntries[moduleLinksEntries.length-1][1]}`
+                previousName = `${moduleLinksEntries[moduleLinksEntries.length-1][0]}`
+                nextPath = planLinkEntries[0][1]
+                nextName = planLinkEntries[0][0]
+            } else {
+
+                const currentIndex = planLinkEntries.findIndex(([linkName, linkPath])=>location.pathname.includes(linkPath))
+
+                let next, previous
+
+                switch (currentIndex) {
+                    case 0:
+                        next = planLinkEntries[currentIndex + 1]
+                        previousPath = '/the-plan'
+                        previousName = 'The Plan'
+                        nextPath = next[1]
+                        nextName = next[0]
+                        break
+                    case planLinkEntries.length - 1:
+                        previous = planLinkEntries[currentIndex - 1]
+                        next = planLinkEntries[currentIndex + 1]
+                        previousPath = previous[1]
+                        previousName = previous[0]
+                        nextPath = '/contribute'
+                        nextName = 'Contribute'
+                        break
+                    default:
+                        previous = planLinkEntries[currentIndex - 1]
+                        next = planLinkEntries[currentIndex + 1]
+                        previousPath = previous[1]
+                        previousName = previous[0]
+                        nextPath = next[1]
+                        nextName = next[0]
+                        break
+                }
+            }
+        }
+
+        return <PreviousNextButtons
+            previousPath={previousPath}
+            previousName={previousName}
+            nextPath={nextPath}
+            nextName={nextName}
+        />
     }
 
     const handleCBarClose = (event, reason) => {
@@ -113,7 +219,6 @@ function Root(props) {
                 </ListItemButton>
             </ListItem>
         </List>
-        {/*<Divider />*/}
     </>)
 
     return <>
@@ -132,6 +237,7 @@ function Root(props) {
                         <MenuIcon />
                     </IconButton>
                     <Button component={RouterLink} to={'/'} color={'inherit'} >
+                        <img src={Logo} width={'40px'} alt={'Logo'} style={{marginRight: '.5rem'}}/>
                         <Typography variant='h5' sx={{fontFamily: "'Cinzel Decorative', cursive"}}>Open Seastead</Typography>
                     </Button>
 
@@ -147,7 +253,7 @@ function Root(props) {
                             <Button component={RouterLink} to={'/about'} color={'inherit'} sx={{ flexGrow: 1 }}>
                             <Typography variant='h6' >About</Typography>
                             </Button>
-                            <Button component={RouterLink} to={'/contribute'} color={'inherit'} variant={'outlined'} sx={{ flexGrow: 1 }}>
+                            <Button component={RouterLink} to={'/contribute'} color={'secondary'} variant={'contained'} sx={{ flexGrow: 1 }}>
                             <Typography variant='h6' >Contribute</Typography>
                             </Button>
                         </>
@@ -183,7 +289,15 @@ function Root(props) {
                 </Drawer>
                 : null }
             <Box sx={{height: '100%'}} >
-                { props.errorPage ? <ErrorPage /> : <Outlet context={{isMobile: isMobile, mobileOpen: mobileOpen, handleDrawerToggle: handleDrawerToggle, drawerWidth: drawerWidth}}/> }
+                {
+                    props.errorPage ? <ErrorPage /> :
+                        <Outlet context={{
+                            isMobile: isMobile,
+                            mobileOpen: mobileOpen,
+                            handleDrawerToggle: handleDrawerToggle,
+                            drawerWidth: drawerWidth,
+                            previousNextButtons: getPreviousNextButtons()
+                        }}/> }
             </Box>
         </Box>
         <Snackbar open={cBarOpen} onClose={handleCBarClose} autoHideDuration={20000}>

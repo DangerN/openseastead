@@ -3,6 +3,7 @@ import GridImageItem from "../../components/GridImageItem";
 import GridTextItem from "../../components/GridTextItem";
 import GridContainer from "../../components/GridContainer";
 import {Link as RouterLink} from "react-router-dom";
+import GridEmpty from "../../components/GridEmpty";
 
 function ModuleIndex() {
     return <>
@@ -20,11 +21,32 @@ function ModuleIndex() {
                     Proof of concept is what we're looking for.
                 </Typography>
             </GridTextItem>
-            <GridImageItem imageProps={{src: 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg'}}/>
+
+            <GridEmpty/>
             <GridTextItem>
-                <Typography paragraph>Im text related to the image</Typography>
+                <Typography variant={'h4'}>Design</Typography>
+                <Typography paragraph>
+                    There are reasons we made the design choices we did.
+                </Typography>
+                <Button component={RouterLink} to={'design'} variant={'outlined'} >
+                    Design
+                </Button>
             </GridTextItem>
-            <GridImageItem imageProps={{src: 'https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}}/>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Safety</Typography>
+                <Typography paragraph>
+                    It's safe enough.
+                </Typography>
+                <Button component={RouterLink} to={'construction'} variant={'outlined'} >
+                    Safety
+                </Button>
+            </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
             <GridTextItem>
                 <Typography variant={'h4'}>Onboard Computer</Typography>
                 <Typography paragraph>
@@ -35,6 +57,57 @@ function ModuleIndex() {
                     Onboard Computer
                 </Button>
             </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Propulsion</Typography>
+                <Typography paragraph>
+                    It goes. Not fast, but it goes.
+                </Typography>
+                <Button component={RouterLink} to={'sea-trials'} variant={'outlined'} >
+                    Propulsion
+                </Button>
+            </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Energy</Typography>
+                <Typography paragraph>
+                    Generate energy.
+
+                </Typography>
+                <Button component={RouterLink} to={'location'} variant={'outlined'} >
+                    Energy
+                </Button>
+            </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Habitation</Typography>
+                <Typography paragraph>
+                    It is habitable
+                </Typography>
+                <Button component={RouterLink} to={'business'} variant={'outlined'} >
+                    Habitation
+                </Button>
+            </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Materials</Typography>
+                <Typography paragraph>
+                    Gotta make it out of something.
+                </Typography>
+                <Button component={RouterLink} to={'materials'} variant={'outlined'} >
+                    Materials
+                </Button>
+            </GridTextItem>
+            <GridEmpty right/>
+
         </GridContainer>
     </>
 }

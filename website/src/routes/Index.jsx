@@ -6,7 +6,6 @@ import {Link as RouterLink} from "react-router-dom";
 import GridEmpty from "../components/GridEmpty";
 
 
-
 function Index() {
     const theme = useTheme();
     return <>
@@ -29,7 +28,7 @@ function Index() {
 
                 </Typography>
                 <Typography paragraph>
-                    In the future, larger modules will form fully fledged floating cities complete with (things cities have).
+                    In the future, larger modules will form fully fledged floating cities.
                 </Typography>
                 <Button component={RouterLink} to={'/the-module'} variant={'contained'} >
                     The Module
@@ -38,7 +37,7 @@ function Index() {
             <GridEmpty right/>
             <GridEmpty/>
             <GridTextItem>
-                <Typography variant={'h3'}>Zero Waste Philosophy</Typography>
+                <Typography variant={'h3'}>Eco Restorative Philosophy</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
                     Nothing is waste.
@@ -48,13 +47,14 @@ function Index() {
             <GridEmpty/>
             <GridTextItem>
                 <Typography variant={'h3'}>Committed to Open Source</Typography>
+                <Typography paragraph/>
                 <Typography paragraph>
-                    We believe that the sharing of knowledge enriches us all.
-                    As such, we will make all plans, designs and () freely available.
-                    We will also document our journey every step of the way so that the seasteading community at large can share in our triumphs as well as learn from our mistakes.
+                    We believe that sharing knowledge enriches us all.
+                    As such, we will make all plans, designs, and documentation freely available to the public.
+                    We will also record our journey every step of the way so that the seasteading community at large can share in our triumphs as well as learn from our mistakes.
                 </Typography>
                 <Typography paragraph>
-                    We are builing on open source technologies so that anyone can contribute.
+                    Where possible, we will utilize open source technologies so that anyone can contribute.
                 </Typography>
             </GridTextItem>
         </GridContainer>

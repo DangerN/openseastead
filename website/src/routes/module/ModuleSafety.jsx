@@ -13,10 +13,6 @@ function ModuleSafety() {
                 <Typography paragraph />
                 <Typography paragraph>Im more info</Typography>
             </GridTextItem>
-            <GridImageItem imageProps={{src: 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg'}}/>
-            <GridTextItem>
-                <Typography paragraph>Im text related to the image</Typography>
-            </GridTextItem>
             <GridImageItem imageProps={{alt: 'Watertight compartments.'}} />
             <GridTextItem>
                 <Typography variant='h4'>Watertight Compartments</Typography>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="104.96874mm"
+   height="104.96874mm"
+   viewBox="0 0 104.96874 104.96874"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   sodipodi:docname="jewel.svg"
+   inkscape:export-filename="../../website/public/logo192.png"
+   inkscape:export-xdpi="46.459541"
+   inkscape:export-ydpi="46.459541"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.70199214"
+     inkscape:cx="116.09817"
+     inkscape:cy="198.72017"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-52.515628,-96.015628)">
+    <circle
+       style="fill:#861f25;fill-opacity:1;stroke:#86721f;stroke-width:6.61458;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle6086"
+       cx="105"
+       cy="148.5"
+       r="49.177082" />
+    <path
+       sodipodi:type="star"
+       style="fill:#000000;fill-opacity:0;stroke:#1f8680;stroke-width:7.90902;stroke-dasharray:none;stroke-opacity:1"
+       id="path1514"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="58.542252"
+       sodipodi:cy="98.405693"
+       sodipodi:r1="51.213207"
+       sodipodi:r2="25.606604"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 102.89419,124.0123 -88.703877,0 44.351939,-76.819814 z"
+       inkscape:transform-center-y="-10.366927"
+       transform="matrix(0.7377917,0,0,0.80970727,61.808012,71.046221)" />
+    <circle
+       style="fill:#000000;fill-opacity:0;stroke:#1f8680;stroke-width:6.61458;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path1568"
+       cx="105"
+       cy="148.5"
+       r="49.177082"
+       inkscape:export-filename="../../website/public/logo512.png"
+       inkscape:export-xdpi="123.89211"
+       inkscape:export-ydpi="123.89211" />
+  </g>
+</svg>

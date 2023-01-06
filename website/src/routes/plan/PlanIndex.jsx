@@ -9,13 +9,14 @@ function PlanIndex() {
         <Toolbar/>
         <GridContainer>
             <GridTextItem gridProps={{md: 12}}>
-                <Typography variant={'h3'}>Plan Overview</Typography>
+                <Typography variant={'h3'}>The Plan</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
                     Our plan begins with the launch of a single module.
                     From there, we will add several more until we have created a floating R&D facility.
                 </Typography>
             </GridTextItem>
+
             <GridEmpty/>
             <GridTextItem>
                 <Typography variant={'h4'}>Construction</Typography>
