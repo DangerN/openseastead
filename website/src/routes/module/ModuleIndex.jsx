@@ -1,5 +1,5 @@
 import {Typography, Toolbar, Button} from "@mui/material";
-import GridImageItem from "../../components/GridImageItem";
+// import GridImageItem from "../../components/GridImageItem";
 import GridTextItem from "../../components/GridTextItem";
 import GridContainer from "../../components/GridContainer";
 import {Link as RouterLink} from "react-router-dom";

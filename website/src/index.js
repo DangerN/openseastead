@@ -5,7 +5,6 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./routes/Root";
 import Index from "./routes/Index";
 import {createTheme, ThemeProvider} from "@mui/material";
-import {blueGrey} from "@mui/material/colors";
 import Contribute from "./routes/Contribute";
 import About from "./routes/About";
 import SeasteadModule from "./routes/SeasteadModule";
