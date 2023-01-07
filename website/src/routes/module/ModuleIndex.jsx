@@ -40,7 +40,7 @@ function ModuleIndex() {
                 <Typography paragraph>
                     It's safe enough.
                 </Typography>
-                <Button component={RouterLink} to={'construction'} variant={'outlined'} >
+                <Button component={RouterLink} to={'safety'} variant={'outlined'} >
                     Safety
                 </Button>
             </GridTextItem>

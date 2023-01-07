@@ -3,7 +3,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CssBaseline from '@mui/material/CssBaseline';
-import {AppBar, Box, Button, Collapse, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Button, Collapse, Paper, Toolbar, Typography} from "@mui/material";
 import {Outlet, Link as RouterLink, useLocation} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import {useTheme} from "@mui/material/styles";
@@ -182,6 +182,7 @@ function Root(props) {
         setMobileOpen(false)
         setModuleOpen(location.pathname.includes('the-module'))
         setPlanOpen(location.pathname.includes('the-plan'))
+        window.scrollTo(0, 0)
     }, [location])
 
     const drawer = (<>
@@ -298,6 +299,12 @@ function Root(props) {
                             drawerWidth: drawerWidth,
                             previousNextButtons: getPreviousNextButtons()
                         }}/> }
+
+                <Paper component={'footer'} square variant='outlined' >
+                    <Typography textAlign={'center'} variant={'body2'} sx={{margin: '1rem 0'}}>
+                        © 2023 Open Seastead
+                    </Typography>
+                </Paper>
             </Box>
         </Box>
         <Snackbar open={cBarOpen} onClose={handleCBarClose} autoHideDuration={20000}>

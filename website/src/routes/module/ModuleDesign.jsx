@@ -11,7 +11,8 @@ function ModuleDesign() {
                 <Typography variant={'h3'}>Design</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
-                    When designing our module, we took
+                    When designing our module, our main criteria were that it needed to be stable, mobile, and independent.
+                    Inspired by commercial and industrial vessels, we put practicality at the forefront of our process.
                 </Typography>
             </GridTextItem>
             <GridEmpty/>
@@ -20,10 +21,11 @@ function ModuleDesign() {
                 <Typography paragraph/>
                 <Typography paragraph>
                     We chose a spar for the module hull due to it being a highly stable configuration.
-                    Modules connecting together in a triangular fashion has several purposes.
-                    It allows a variety of stable configuration. Also triangle strong.
-                    Additionally, it allowed us to control(eliminate? reduce?) vortex shedding and potential induced vibrations.
-                    Allows active stabilization with engines.
+                    Connecting modules together to form triangles has several purposes.
+                    Triangles are an inherently strong shape.
+                    They also allow for a great variety of configurations
+                    Additionally, it allowed us to control vortex shedding induced vibrations found with repeating columns.
+                    We can also use thrusters for active stabilization.
                 </Typography>
             </GridTextItem>
             <GridEmpty right/>
@@ -33,12 +35,11 @@ function ModuleDesign() {
                 <Typography variant={'h4'}>Size</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
-                    We wanted to have our smallest(class 1?) modules be small enough to be transported as relatively normal freight.
-                    This has several advantages.
+                    We wanted to have our first modules be small enough to be transported like normal freight.
+                    This provides several advantages.
                     Fabrication can be performed away from the coast, making it more cost effective.
-                    Can be shipped by truck, rail, or ship with specialized equipment.
-                    Small enough to be for legal purposes.
-                    Does not need to be registered with USCG.
+                    We can easily deliver a module anywhere in the world utilizing truck, rail, or ship.
+                    The smaller size also comes with fewer regulations when flying a United States flag.
                 </Typography>
             </GridTextItem>
             <GridEmpty right/>
@@ -48,10 +49,22 @@ function ModuleDesign() {
                 <Typography variant={'h4'}>Inflatables</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
-                    Lower cost, easy to repair, manufacture.
-                    Can store extra parts.
-                    Extremely lightweight, keeps center of gravity low.
-                    Easy to customize, integrate with other seastead designs.
+                    We chose to incorporate inflatables into our design due to their light weight, ease of repair, and low manufacturing cost.
+                    Spare parts can be easily stored within the module.
+                    Their light weight helps to keep the cent of mass low which helps stability.
+                    Inflatables can be readily customized, allowing for a variety of uses as well as integration with other seastead designs.
+                </Typography>
+            </GridTextItem>
+            <GridEmpty right/>
+
+            <GridEmpty/>
+            <GridTextItem>
+                <Typography variant={'h4'}>Mobility</Typography>
+                <Typography paragraph/>
+                <Typography paragraph>
+                    To fully realize the benefits of modular infrastructure each module must be able to propel itself.
+                    A mobile seastead will be able to outrun a storm instead of weathering it.
+                    This reduces risk as well as wear and tear.
                 </Typography>
             </GridTextItem>
             <GridEmpty right/>

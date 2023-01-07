@@ -18,6 +18,9 @@ function ModuleSafety() {
                 <Typography variant='h4'>Watertight Compartments</Typography>
                 <Typography paragraph>
                     Each of the eight decks can be sealed to form watertight compartments.
+                    Due to the shape, most impacts will glance off.
+                    Collision with another vessel is the mostly likely cause of a hull bread.
+                    Fortunately, it is extremely unlikely an impact would puncture more than
                     Watertight electrical systems ensure power is not lost in case of a hull breach.
                 </Typography>
             </GridTextItem>
@@ -25,13 +28,28 @@ function ModuleSafety() {
             <GridTextItem>
                 <Typography variant='h4'>Inflatable Beams</Typography>
                 <Typography paragraph/>
-                <Typography paragraph>Strength: Can recover from failure :)</Typography>
-                <Typography paragraph>Weakness: Can be melted by jet fuel :(</Typography>
+                <Typography paragraph>
+                    Inflatable beams connecting the modules allows a seastead to withstand some of the greatest forces nature can produce.
+                    An inflatable superstructure can bend where more rigid materials would break.
+                    It can recover it's structure in a way other materials can not.
+                </Typography>
+                <Typography paragraph>
+                    For example, a steel beam strained to the point of buckling will be permanently deformed.
+                    An inflatable beam can also buckle in the same manner.
+                    The key difference: an inflatable beam can recover.
+                </Typography>
+                <Typography paragraph>
+                    We have developed a system for rapid automatic recovery of the inflatable superstructure.
+                    This will allow seasteads built on our modules to survive violent storms in the unlikely event of being caught in one.
+                </Typography>
             </GridTextItem>
             <GridImageItem imageProps={{alt: 'Safety equitmemt.', src: 'https://cdn.pixabay.com/photo/2014/01/10/19/26/life-raft-241788_960_720.jpg'}} />
             <GridTextItem>
                 <Typography variant='h4'>Safety Equipment</Typography>
-                <Typography paragraph>Modules will be well equipped to avoid disaster. Every </Typography>
+                <Typography paragraph>
+                    Modules will be well equipped to avoid disaster.
+                    Every module may not requre every item listed here, but all of these will included in our base model.
+                </Typography>
                 <Typography variant={'h5'}>Life Raft and Floatation Devices</Typography>
                 <Typography paragraph>Each module will be equipped with a life raft as well as PFDs and throwable life rings.</Typography>
                 <Typography variant={'h5'}>VHF Radio</Typography>

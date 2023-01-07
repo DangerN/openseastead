@@ -4,6 +4,7 @@ import GridTextItem from "../components/GridTextItem";
 import GridContainer from "../components/GridContainer";
 import {Link as RouterLink} from "react-router-dom";
 import GridEmpty from "../components/GridEmpty";
+// import Grid from "@mui/material/Unstable_Grid2";
 
 
 function Index() {
@@ -20,19 +21,22 @@ function Index() {
                 <Typography paragraph/>
                 <Typography paragraph>
                     At Open Seastead we are focused on developing technologies to make the dream of <Link href='https://www.seasteading.org/' target='_blank' rel="noopener noreferrer">seasteading</Link> a reality.
+                    Our planet has so much potential for green, sustainable growth. We will help to unlock it.
                 </Typography>
                 <Typography paragraph>
                     We are creating a framework for humanity to live permanently on the open ocean.
                     Our first modules can be used to create small communities supporting tourism and marine industry.
-                    More words here.
-
-                </Typography>
-                <Typography paragraph>
                     In the future, larger modules will form fully fledged floating cities.
                 </Typography>
-                <Button component={RouterLink} to={'/the-module'} variant={'contained'} >
-                    The Module
-                </Button>
+                <Typography paragraph>
+                    We will be successful by starting small and taking measured, deliberate steps towards our goal.
+                    Rome was not built in a day, and floating cities are no exception.
+                </Typography>
+                <Box textAlign={'center'}>
+                    <Button component={RouterLink} to={'/the-module'} variant={'contained'} color={'secondary'} fullWidth sx={{maxWidth: '400px', margin: '0 auto'}} >
+                        Check Out the Module
+                    </Button>
+                </Box>
             </GridTextItem>
             <GridEmpty right/>
             <GridEmpty/>
@@ -40,7 +44,20 @@ function Index() {
                 <Typography variant={'h3'}>Eco Restorative Philosophy</Typography>
                 <Typography paragraph/>
                 <Typography paragraph>
-                    Nothing is waste.
+                    To build a sustainable future, we must stop thinking in terms of waste and instead consider the full lifecycle of what we produce.
+                    Nothing goes away, it is merely transformed into something else.
+                </Typography>
+                <Typography paragraph>
+                    For much of history humanity was able to rely on natural processes to maintain balance with our environment.
+                    Wooden structures were eventually claimed by rot and returned to the environment.
+
+                    With the advent of industrialization and artificial materials this was no longer the case.
+                    While plastics may erode into smaller pieces, there are no decomposers to break down.
+                    Therefor the task falls to us.
+                </Typography>
+                <Typography paragraph>
+                    Our design incorporates nylon, one of the main artificial materials found in our oceans.
+                    By recycling nylon into structural components of the seastead, we create additional space for humanity to live as well as help restore our oceans.
                 </Typography>
             </GridTextItem>
             <GridEmpty right/>
